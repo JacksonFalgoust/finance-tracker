@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FinanceTrackerBackendApplication<finance-tracker-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.Jackson_Falgoust.finance_tracker.FinanceTrackerBackendApplication",
+            "projectName": "finance-tracker-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
