@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.Jackson_Falgoust.finance_tracker.entity.Expense;
 
 @Repository
-
 public interface ExpenseRepository extends JpaRepository<Expense, Long>{
 
     
