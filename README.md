@@ -29,10 +29,10 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 # Tables to add
 
 1. Accounts - tracker different accounts (id, name, type, amount)
-    - Transactions include account_id to track what account was used\
+    - Transactions include account_id to track what account was used
 
 2. Categories - store categories for transactions in a table (id, name)
-    - Reference category by categor_id
+    - Reference category by category_id
 
 3. Budget - set spending limits (id, category_id, amount_limit, month)
 
