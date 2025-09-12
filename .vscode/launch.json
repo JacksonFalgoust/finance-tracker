@@ -4,6 +4,13 @@
             "type": "java",
             "name": "TrackerApplication",
             "request": "launch",
+            "mainClass": "com.finance.tracker.TrackerApplication",
+            "projectName": "tracker"
+        },
+        {
+            "type": "java",
+            "name": "TrackerApplication",
+            "request": "launch",
             "mainClass": "TrackerApplication",
             "projectName": "Personal finance tracker_cc573815"
         },
