@@ -24,7 +24,8 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 3. Make repository
 4. Make controller
 5. Change to MySQL
-6. Build frontend
+6. Make preset categories (e.i. other, food, entertainment etc.)
+7. Build frontend
 
 # Tables to add
 
