@@ -19,13 +19,12 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 ## TO DO
 
-1. Set up h-2 for now 
-2. Create entity for transaction (transaction table)
-3. Make repository
-4. Make controller
-5. Change to MySQL
-6. Make preset categories (e.i. other, food, entertainment etc.)
-7. Build frontend
+1. Make controller
+2. Test to make sure everything works
+3. Change to MySQL
+4. Make preset categories (e.i. other, food, entertainment etc.)
+5. Build frontend
+6. Add different users
 
 # Tables to add
 
