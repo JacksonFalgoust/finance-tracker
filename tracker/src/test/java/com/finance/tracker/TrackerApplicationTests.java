@@ -1,10 +1,10 @@
-package com.Jackson_Falgoust.finance_tracker;
+package com.finance.tracker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FinanceTrackerBackendApplicationTests {
+class TrackerApplicationTests {
 
 	@Test
 	void contextLoads() {
