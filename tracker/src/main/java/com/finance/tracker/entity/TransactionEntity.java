@@ -10,9 +10,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
-
-import com.finance.tracker.entity.CategoryEntity;
-import com.finance.tracker.entity.AccountEntity;
 /*
  * Entity class representing a financial transaction.
  */
@@ -38,8 +35,16 @@ public class TransactionEntity {
     private Double amount;
 
     public TransactionEntity() {} // Default constructor for JPA
+    
     public TransactionEntity(CategoryEntity category, AccountEntity account, LocalDate date, Double amount) {
         this.category = category;
+        this.account = account;
+        this.date = date;
+        this.amount = amount;
+    }
+
+    public TransactionEntity(AccountEntity account, LocalDate date, Double amount) {
+        this.category = null; // No category (change to premade category other later)
         this.account = account;
         this.date = date;
         this.amount = amount;
