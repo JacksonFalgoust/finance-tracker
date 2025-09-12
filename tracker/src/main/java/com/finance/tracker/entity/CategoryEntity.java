@@ -16,14 +16,14 @@ import lombok.Setter;
 @Entity
 public class CategoryEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment id
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<TransactionEntity> transactions;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // One category can have many transactions 
+    private List<TransactionEntity> transactions; // List of transactions linked to this category
 
     public CategoryEntity() {} // Default constructor for JPA
     public CategoryEntity(String name) {
