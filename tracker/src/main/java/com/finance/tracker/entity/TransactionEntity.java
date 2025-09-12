@@ -37,8 +37,8 @@ public class TransactionEntity {
     private LocalDate date;
     private Double amount;
 
-    private TransactionEntity() {} // Default constructor for JPA
-    private TransactionEntity(CategoryEntity category, AccountEntity account, LocalDate date, Double amount) {
+    public TransactionEntity() {} // Default constructor for JPA
+    public TransactionEntity(CategoryEntity category, AccountEntity account, LocalDate date, Double amount) {
         this.category = category;
         this.account = account;
         this.date = date;
