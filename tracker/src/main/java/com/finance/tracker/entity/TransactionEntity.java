@@ -10,8 +10,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
+
 /*
  * Entity class representing a financial transaction.
+ * Each transaction is linked to one account and optionally one category.
+ * Examples of transaction types: Income, Expense, Transfer.
  */
 
 @Getter

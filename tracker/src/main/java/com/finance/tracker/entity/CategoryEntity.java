@@ -11,6 +11,11 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+/*
+ * Entity class representing a transaction category.
+ * Each category can have multiple transactions associated with it.
+ */
+
 @Getter
 @Setter
 @Entity

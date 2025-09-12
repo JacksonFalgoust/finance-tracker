@@ -11,6 +11,12 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+/*
+ * Entity class representing a financial account.
+ * Each account can have multiple transactions associated with it.
+ * Examples of account types: Checking, Savings, Credit Card.
+ */
+
 @Getter
 @Setter
 @Entity
