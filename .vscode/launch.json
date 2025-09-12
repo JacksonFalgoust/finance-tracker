@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TrackerApplication",
+            "request": "launch",
+            "mainClass": "TrackerApplication",
+            "projectName": "Personal finance tracker_cc573815"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-FinanceTrackerBackendApplication<finance-tracker-backend>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

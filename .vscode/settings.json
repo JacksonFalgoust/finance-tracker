@@ -1,5 +1,8 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src",
+        "tracker/src/main/java/com/finance/tracker"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"

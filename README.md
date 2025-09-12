@@ -19,8 +19,9 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 ## TO DO
 
-1. Make transaction table in MySQL
+1. Set up h-2 for now 
 2. Create entity for transaction (transaction table)
 3. Make repository
 4. Make controller
-5. Build frontend
+5. Change to MySQL
+6. Build frontend
