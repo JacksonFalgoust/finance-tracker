@@ -3,6 +3,7 @@ package com.finance.tracker.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +29,11 @@ public class AccountController {
     @GetMapping
     public List<AccountEntity> getAccounts() {
         return accRepo.findAll();
+    }
+
+    @PostMapping
+    public AccountEntity createAccount(AccountEntity account) {
+        return accRepo.save(account);
     }
 
 }
