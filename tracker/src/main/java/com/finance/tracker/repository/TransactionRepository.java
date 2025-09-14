@@ -17,5 +17,6 @@ import com.finance.tracker.entity.TransactionEntity;
 public interface TransactionRepository extends JpaRepository<TransactionEntity, Long> {
 
     List<TransactionEntity> findByCategoryId(Long categoryId);
+    List<TransactionEntity> findByAccountId(Long accountId);
 
 }
