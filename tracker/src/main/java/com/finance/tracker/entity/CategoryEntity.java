@@ -2,6 +2,8 @@ package com.finance.tracker.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,7 @@ public class CategoryEntity {
 
     private String name;
 
+    @JsonIgnore // Prevents infinite recursion during JSON serialization
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // One category can have many transactions 
     private List<TransactionEntity> transactions; // List of transactions linked to this category
 

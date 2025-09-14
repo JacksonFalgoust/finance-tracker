@@ -2,6 +2,8 @@ package com.finance.tracker.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +32,7 @@ public class AccountEntity {
     private String type; // e.g., "Checking", "Savings", "Credit Card"
     private Double balance;
 
+    @JsonIgnore // Prevents infinite recursion during JSON serialization
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL) // One account can have many transactions
     private List<TransactionEntity> transactions; // List of transactions linked to this account
 
