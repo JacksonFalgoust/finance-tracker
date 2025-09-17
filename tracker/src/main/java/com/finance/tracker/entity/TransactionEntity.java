@@ -34,7 +34,7 @@ public class TransactionEntity {
     @JoinColumn(name = "account_id")  // Foreign key column
     private AccountEntity account; // Account of the transaction linked to AccountEntity
 
-    private LocalDate date;
+    private LocalDate date = LocalDate.now(); // Date of the transaction, default to current date
     private Double amount;
 
     public TransactionEntity() {} // Default constructor for JPA
@@ -56,18 +56,12 @@ public class TransactionEntity {
     public TransactionEntity(CategoryEntity category, AccountEntity account, Double amount) {
         this.category = category;
         this.account = account;
-        /* 
-         * Does not work needs to be fixed 
-         * makes date null when not put in in the post request
-        */
-        this.date = LocalDate.now(); // Default to current date
         this.amount = amount;
     }
 
     public TransactionEntity(AccountEntity account, Double amount) {
         this.category = null; // No category (change to premade category other later)
         this.account = account;
-        this.date = LocalDate.now(); // Default to current date
         this.amount = amount;
     }
 
