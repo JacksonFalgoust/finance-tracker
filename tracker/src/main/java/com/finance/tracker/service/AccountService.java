@@ -15,7 +15,6 @@ public class AccountService {
     }
 
     public AccountEntity createAccount(AccountEntity account) {
-
         if (account.getBalance() == null) {
             account.setBalance(0.0);
         } else if (account.getBalance() < 0) {
