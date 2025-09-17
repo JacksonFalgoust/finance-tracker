@@ -1,5 +1,7 @@
 package com.finance.tracker.service;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Service;
 
 import com.finance.tracker.entity.AccountEntity;
@@ -22,6 +24,24 @@ public class TransactionService {
         AccountEntity account = accRepo.findById(transaction.getAccount().getId())
                 .orElseThrow(() -> new RuntimeException("Account not found"));
 
+        if (transaction.getAmount() == null) {
+            throw new RuntimeException("Transaction amount cannot be null");
+        } else if (account.getBalance() < transaction.getAmount()) {
+            throw new RuntimeException("Insufficient funds in account");
+        } else if (transaction.getAmount() <= 0) {
+            throw new RuntimeException("Transaction amount must be positive");
+        }
+
+        if (transaction.getDate() == null) {
+            transaction.setDate(LocalDate.now());
+        }
+
+        if (transaction.getCategory() == null) {
+            // Handle no category case, e.g., assign to a default category or leave as null
+            // For now, we'll leave it as null
+            transaction.setCategory(null);
+        }
+        
         account.setBalance(account.getBalance() - transaction.getAmount());
 
         accRepo.save(account);

@@ -45,24 +45,4 @@ public class TransactionEntity {
         this.date = date;
         this.amount = amount;
     }
-
-    public TransactionEntity(AccountEntity account, LocalDate date, Double amount) {
-        this.category = null; // No category (change to premade category other later)
-        this.account = account;
-        this.date = date;
-        this.amount = amount;
-    }
-
-    public TransactionEntity(CategoryEntity category, AccountEntity account, Double amount) {
-        this.category = category;
-        this.account = account;
-        this.amount = amount;
-    }
-
-    public TransactionEntity(AccountEntity account, Double amount) {
-        this.category = null; // No category (change to premade category other later)
-        this.account = account;
-        this.amount = amount;
-    }
-
 }
