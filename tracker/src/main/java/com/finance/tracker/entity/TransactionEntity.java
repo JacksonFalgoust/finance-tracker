@@ -56,6 +56,10 @@ public class TransactionEntity {
     public TransactionEntity(CategoryEntity category, AccountEntity account, Double amount) {
         this.category = category;
         this.account = account;
+        /* 
+         * Does not work needs to be fixed 
+         * makes date null when not put in in the post request
+        */
         this.date = LocalDate.now(); // Default to current date
         this.amount = amount;
     }

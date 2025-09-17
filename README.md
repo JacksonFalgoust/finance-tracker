@@ -18,13 +18,14 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
 
 ## TO DO
-
-1. Make controller
-2. Test to make sure everything works
-3. Change to MySQL
-4. Make preset categories (e.i. other, food, entertainment etc.)
-5. Build frontend
-6. Add different users
+1. Fix date (currently null when not put in in the post request)
+2. Move everything to a service
+3. Make controller
+4. Test to make sure everything works
+5. Change to MySQL
+6. Make preset categories (e.i. other, food, entertainment etc.)
+7. Build frontend
+8. Add different users
 
 # Tables to add
 
