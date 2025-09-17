@@ -42,7 +42,7 @@ public class AccountController {
 
     @PostMapping
     public AccountEntity createAccount(@RequestBody AccountEntity account) {
-        return accRepo.save(account);
+        return service.createAccount(account);
     }
 
     @GetMapping("/{accountId}")

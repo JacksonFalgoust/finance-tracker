@@ -43,11 +43,4 @@ public class AccountEntity {
         this.type = type;
         this.balance = balance;
     }
-
-    public AccountEntity(String name, String type) {
-        this.name = name;
-        this.type = type;
-        this.balance = 0.0; // Default balance
-    }
-
 }
