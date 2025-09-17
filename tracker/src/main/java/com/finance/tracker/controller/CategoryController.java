@@ -14,6 +14,7 @@ import com.finance.tracker.entity.TransactionEntity;
 import com.finance.tracker.repository.AccountRepository;
 import com.finance.tracker.repository.CategoryRepository;
 import com.finance.tracker.repository.TransactionRepository;
+import com.finance.tracker.service.CategoryService;
 
 
 @RestController
@@ -25,10 +26,13 @@ public class CategoryController {
     private final CategoryRepository catRepo;
     private final AccountRepository accRepo;
 
-    public CategoryController(TransactionRepository transRepo, CategoryRepository catRepo, AccountRepository accRepo) {
+    private final CategoryService service;
+
+    public CategoryController(TransactionRepository transRepo, CategoryRepository catRepo, AccountRepository accRepo, CategoryService service) {
         this.transRepo = transRepo;
         this.catRepo = catRepo;
         this.accRepo = accRepo;
+        this.service = service;
     }
 
     @GetMapping
@@ -38,7 +42,7 @@ public class CategoryController {
 
     @PostMapping
     public CategoryEntity createCategory(@RequestBody CategoryEntity category) {
-        return catRepo.save(category);
+        return service.createCategory(category);
     }
 
     @GetMapping("/{categoryId}")
