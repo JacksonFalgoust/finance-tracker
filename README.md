@@ -25,6 +25,7 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 5. Make preset categories (e.i. other, food, entertainment etc.)
 6. Build frontend
 7. Add different users
+8. Swicth to flyway migration for premade categories
 
 # Tables to add
 
