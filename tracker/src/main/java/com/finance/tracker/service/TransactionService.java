@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Service;
 
 import com.finance.tracker.entity.AccountEntity;
-import com.finance.tracker.entity.AccountEntity.AccountType;
 import com.finance.tracker.entity.CategoryEntity;
 import com.finance.tracker.entity.CategoryEntity.CategoryType;
 import com.finance.tracker.entity.TransactionEntity;
@@ -32,13 +31,6 @@ public class TransactionService {
             CategoryEntity defaultCategory = catRepo.findById(1L)
                 .orElseThrow(() -> new RuntimeException("Default category not found")); // Default 'Other' category
             transaction.setCategory(defaultCategory);
-        }
-        
-        if (transaction.getAccount() == null) {
-            AccountEntity defaultAccount = accRepo.findByType(AccountType.CHECKING)
-                .orElseThrow(() -> new RuntimeException("Default account not found")); // Default 'Checking' account
-
-            transaction.setAccount(defaultAccount);
         }
 
         CategoryEntity category = transaction.getCategory();

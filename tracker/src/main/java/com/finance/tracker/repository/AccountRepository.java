@@ -3,11 +3,6 @@ package com.finance.tracker.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.finance.tracker.entity.AccountEntity;
-import com.finance.tracker.entity.AccountEntity.AccountType;
-
-import java.util.List;
-import java.util.Optional;
-
 
 /*
  * Repository interface for AccountEntity.
@@ -18,5 +13,5 @@ import java.util.Optional;
  */
 
 public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
-    Optional<AccountEntity> findByType(AccountType type);
+
 }
