@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,9 +31,17 @@ public class CategoryEntity {
 
     private String name;
 
+    @Enumerated(EnumType.STRING) // Store enum as string in DB
+    private CategoryType type; // Type of category (e.g., INCOME, EXPENSE
+
     @JsonIgnore // Prevents infinite recursion during JSON serialization
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // One category can have many transactions 
     private List<TransactionEntity> transactions; // List of transactions linked to this category
+
+    public enum CategoryType {
+        INCOME,
+        EXPENSE
+    }
 
     public CategoryEntity() {} // Default constructor for JPA
     public CategoryEntity(String name) {
