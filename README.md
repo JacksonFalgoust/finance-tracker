@@ -18,14 +18,12 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
 
 ## TO DO
-1. Move everything to a service
-2. Make controller
-3. Test to make sure everything works
-4. Change to MySQL
-5. Make preset categories (e.i. other, food, entertainment etc.)
-6. Build frontend
-7. Add different users
-8. Swicth to flyway migration for premade categories
+1. Make controller
+2. Test to make sure everything works
+3. Change to MySQL
+4. Build frontend
+5. Add different users
+6. Swicth to flyway migration for premade categories
 
 # Tables to add
 
@@ -43,3 +41,100 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 6. Users - have multiple users (id, username, email, password)
     - use user_id foreign key
+
+
+🔹 1. Features to Add
+
+Budgets
+
+Add a Budget entity (category + limit + period).
+
+Track how much you’ve spent vs. the limit.
+
+Recurring Transactions
+
+Allow automatic monthly bills (rent, utilities, subscriptions).
+
+Reports / Analytics
+
+Endpoints for “total expenses by category”, “monthly income vs. expenses”, etc.
+
+Use DTOs instead of exposing entities directly.
+
+User Authentication
+
+Add Spring Security with JWT (so multiple users can have their own accounts/categories).
+
+Exporting Data
+
+CSV or Excel download for transactions.
+
+Search & Filters
+
+REST endpoints with query params (e.g. GET /transactions?from=2025-01-01&to=2025-01-31&category=Groceries).
+
+🔹 2. Technical Improvements
+
+DTOs + Mappers
+
+Don’t return entity objects directly from controllers.
+
+Use DTOs to control JSON structure.
+
+Validation
+
+Add @Valid and @NotNull, @Positive annotations to your request DTOs.
+
+Global Exception Handling
+
+@ControllerAdvice + @ExceptionHandler to send clean error messages.
+
+Logging
+
+Use SLF4J with proper log levels instead of just System.out.println.
+
+Tests
+
+Unit tests for services.
+
+Integration tests with MockMvc for controllers.
+
+🔹 3. Deployment Readiness
+
+Profiles
+
+Use application-dev.properties (H2) and application-prod.properties (MySQL).
+
+Docker (containerize app so any machine can run it without problems)
+
+Create a docker-compose.yml with your Spring Boot app + MySQL container.
+
+Database Migration
+
+Add Flyway or Liquibase instead of relying on ddl-auto.
+
+🔹 4. Optional Nice-to-Haves
+
+Frontend
+
+Hook it up to React, Angular, or Vue.
+
+Or keep it simple with Thymeleaf templates.
+
+Charts / Visualization
+
+API endpoints that feed chart data (Pie chart for expenses by category, line chart for monthly cash flow).
+
+Notifications
+
+Email or push notification when you overspend a budget.
+
+⚡ In short:
+Right now you have a basic CRUD finance tracker.
+Next steps are:
+
+Add budgets, recurring transactions, and reports (feature depth).
+
+Add validation, DTOs, exception handling, logging (code quality).
+
+Add security, profiles, migrations, Docker (deployment readiness).
