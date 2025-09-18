@@ -1,4 +1,5 @@
 INSERT INTO CATEGORY_ENTITY (name, type) VALUES
+('Other', 'EXPENSE'),
 ('Groceries', 'EXPENSE'),
 ('Bills', 'EXPENSE'),
 ('Dining', 'EXPENSE'),

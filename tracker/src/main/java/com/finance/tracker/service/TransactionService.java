@@ -9,6 +9,7 @@ import com.finance.tracker.entity.CategoryEntity;
 import com.finance.tracker.entity.CategoryEntity.CategoryType;
 import com.finance.tracker.entity.TransactionEntity;
 import com.finance.tracker.repository.AccountRepository;
+import com.finance.tracker.repository.CategoryRepository;
 import com.finance.tracker.repository.TransactionRepository;
 
 @Service
@@ -16,17 +17,26 @@ public class TransactionService {
 
     private final TransactionRepository tranRepo;
     private final AccountRepository accRepo;
+    private final CategoryRepository catRepo;
 
-    public TransactionService(TransactionRepository repo, AccountRepository accRepo) {
+    public TransactionService(TransactionRepository repo, AccountRepository accRepo, CategoryRepository catRepo) {
         this.tranRepo = repo;
         this.accRepo = accRepo;
+        this.catRepo = catRepo;
     }
 
     public TransactionEntity createTransaction(TransactionEntity transaction) {
-        AccountEntity account = accRepo.findById(transaction.getAccount().getId())
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+
+        if (transaction.getCategory() == null) {
+            CategoryEntity defaultCategory = catRepo.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Default category not found")); // Default 'Other' category
+            transaction.setCategory(defaultCategory);
+        }
 
         CategoryEntity category = transaction.getCategory();
+
+        AccountEntity account = accRepo.findById(transaction.getAccount().getId())
+                .orElseThrow(() -> new RuntimeException("Account not found"));
 
         if (transaction.getAmount() == null) {
             throw new RuntimeException("Transaction amount cannot be null");
@@ -38,12 +48,6 @@ public class TransactionService {
 
         if (transaction.getDate() == null) {
             transaction.setDate(LocalDate.now());
-        }
-
-        if (transaction.getCategory() == null) {
-            // Handle no category case, e.g., assign to a default category or leave as null
-            // For now, we'll leave it as null
-            transaction.setCategory(null);
         }
         
         if (category.getType() == CategoryType.EXPENSE) {

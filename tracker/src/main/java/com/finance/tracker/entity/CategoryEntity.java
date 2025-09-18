@@ -44,6 +44,7 @@ public class CategoryEntity {
     }
 
     public CategoryEntity() {} // Default constructor for JPA
+    
     public CategoryEntity(String name) {
         this.name = name;
     }
