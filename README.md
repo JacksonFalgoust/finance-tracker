@@ -26,20 +26,13 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 6. Swicth to flyway migration for premade categories
 
 # Tables to add
+1. Recurring transactions - rent, subscritptions, etc. Can auto make transactions (id, category_id, amount, frequency, next_due_date)
 
-1. Accounts - tracker different accounts (id, name, type, amount)
-    - Transactions include account_id to track what account was used
+2. Budget - set spending limits (id, category_id, amount_limit, month)
 
-2. Categories - store categories for transactions in a table (id, name)
-    - Reference category by category_id
+3. Goal - set goals for future saving (id, goal_name, target_amount, current_amount, deadline)
 
-3. Budget - set spending limits (id, category_id, amount_limit, month)
-
-4. Goal - set goals for future saving (id, goal_name, target_amount, current_amount, deadline)
-
-5. Recurring transactions - rent, subscritptions, etc. Can auto make transactions (id, category_id, amount, frequency, next_due_date)
-
-6. Users - have multiple users (id, username, email, password)
+4. Users - have multiple users (id, username, email, password)
     - use user_id foreign key
 
 
