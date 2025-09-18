@@ -18,24 +18,21 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
 
 ## TO DO
-1. Add recurring transactions (use @Scheduled for transactions)
-2. Test to make sure everything works
-3. Change to MySQL
-4. Build frontend
-5. Add different users
-6. Swicth to flyway migration for premade categories
+1. make account default to checking if null
+2. Change to MySQL
+3. Build frontend
+4. Add different users
+5. Swicth to flyway migration for premade categories
 
 # Front end features
 1. is recuring button when creating a transaction to switch between transaction entity and recurring transaction entity
 
 # Tables to add
-1. Recurring transactions - rent, subscritptions, etc. Can auto make transactions (id, category_id, amount, frequency, next_due_date)
+1. Budget - set spending limits (id, category_id, amount_limit, month)
 
-2. Budget - set spending limits (id, category_id, amount_limit, month)
+2. Goal - set goals for future saving (id, goal_name, target_amount, current_amount, deadline)
 
-3. Goal - set goals for future saving (id, goal_name, target_amount, current_amount, deadline)
-
-4. Users - have multiple users (id, username, email, password)
+3. Users - have multiple users (id, username, email, password)
     - use user_id foreign key
 
 
