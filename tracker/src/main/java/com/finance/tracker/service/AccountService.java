@@ -3,6 +3,7 @@ package com.finance.tracker.service;
 import org.springframework.stereotype.Service;
 
 import com.finance.tracker.entity.AccountEntity;
+import com.finance.tracker.entity.AccountEntity.AccountType;
 import com.finance.tracker.repository.AccountRepository;
 
 @Service
@@ -15,6 +16,10 @@ public class AccountService {
     }
 
     public AccountEntity createAccount(AccountEntity account) {
+        if (account.getType() == null) {
+            account.setType(AccountType.CHECKING);
+        }
+
         if (account.getBalance() == null) {
             account.setBalance(0.0);
         } else if (account.getBalance() < 0) {
