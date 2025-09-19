@@ -22,4 +22,8 @@ public class CategoryService {
         return catRepo.save(category);
     }
 
+    public void resetSpentThisMonth(CategoryEntity category) {
+        category.setSpentThisMonth(0.0);
+    }
+
 }

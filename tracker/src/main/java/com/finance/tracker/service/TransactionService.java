@@ -38,6 +38,8 @@ public class TransactionService {
         AccountEntity account = accRepo.findById(transaction.getAccount().getId())
                 .orElseThrow(() -> new RuntimeException("Account not found"));
 
+        TransactionEntity saved = tranRepo.save(transaction);
+
         if (transaction.getAmount() == null) {
             throw new RuntimeException("Transaction amount cannot be null");
         } else if (account.getBalance() < transaction.getAmount()) {
@@ -52,6 +54,7 @@ public class TransactionService {
         
         if (category.getType() == CategoryType.EXPENSE) {
             account.setBalance(account.getBalance() - transaction.getAmount());
+            category.setSpentThisMonth(category.getSpentThisMonth() + transaction.getAmount());
         } else if (category.getType() == CategoryType.INCOME) {
             account.setBalance(account.getBalance() + transaction.getAmount());
         } else {

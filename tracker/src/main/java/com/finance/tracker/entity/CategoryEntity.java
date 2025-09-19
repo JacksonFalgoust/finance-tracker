@@ -30,6 +30,8 @@ public class CategoryEntity {
     private Long id;
 
     private String name;
+    private Double monthlyBudget;
+    private Double spentThisMonth = 0.0;
 
     @Enumerated(EnumType.STRING) // Store enum as string in DB
     private CategoryType type; // Type of category (e.g., INCOME, EXPENSE
@@ -45,8 +47,9 @@ public class CategoryEntity {
 
     public CategoryEntity() {} // Default constructor for JPA
     
-    public CategoryEntity(String name) {
+    public CategoryEntity(String name, Double monthlyBudget) {
         this.name = name;
+        this.monthlyBudget = monthlyBudget;
     }
 
 }
