@@ -12,6 +12,7 @@ import com.finance.tracker.entity.CategoryEntity.CategoryType;
 import com.finance.tracker.entity.RecurringTransactionEntity;
 import com.finance.tracker.entity.TransactionEntity;
 import com.finance.tracker.repository.AccountRepository;
+import com.finance.tracker.repository.CategoryRepository;
 import com.finance.tracker.repository.RecurringTransactoinRepository;
 import com.finance.tracker.repository.TransactionRepository;
 
@@ -20,12 +21,39 @@ public class RecurringTransactionService {
 
     private final RecurringTransactoinRepository recRepo;
     private final TransactionRepository tranRepo;
+    private final CategoryRepository catRepo;
     private final AccountRepository accRepo;
 
-    public RecurringTransactionService(RecurringTransactoinRepository recRepo, TransactionRepository tranRepo, AccountRepository accRepo) {
+    public RecurringTransactionService(RecurringTransactoinRepository recRepo, TransactionRepository tranRepo, AccountRepository accRepo, CategoryRepository catRepo) {
         this.recRepo = recRepo;
         this.tranRepo = tranRepo;
         this.accRepo = accRepo;
+        this.catRepo = catRepo;
+    }
+
+    public RecurringTransactionEntity createRecurringTransaction(RecurringTransactionEntity recurring) {
+
+        if (recurring.getCategory() == null) {
+            CategoryEntity defaultCategory = catRepo.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Default category not found")); // Default 'Other' category
+            recurring.setCategory(defaultCategory);
+        }
+
+        if (recurring.getStartDate() == null) {
+            recurring.setStartDate(LocalDate.now());
+        }
+
+        if (recurring.getNextOccurrence() == null) {
+            switch (recurring.getFrequency()) {
+                case DAILY -> recurring.setNextOccurrence(recurring.getStartDate());
+                case WEEKLY -> recurring.setNextOccurrence(recurring.getStartDate());
+                case MONTHLY -> recurring.setNextOccurrence(recurring.getStartDate());
+                case YEARLY -> recurring.setNextOccurrence(recurring.getStartDate());
+                default -> throw new RuntimeException("Unsupported frequency: " + recurring.getFrequency());
+            }
+        }
+
+        return recRepo.save(recurring);
     }
 
     @Transactional

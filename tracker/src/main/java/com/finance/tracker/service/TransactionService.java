@@ -46,6 +46,7 @@ public class TransactionService {
             throw new RuntimeException("Transaction amount must be positive");
         }
 
+        // Check if needed
         if (transaction.getDate() == null) {
             transaction.setDate(LocalDate.now());
         }

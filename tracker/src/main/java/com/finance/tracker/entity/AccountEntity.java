@@ -50,9 +50,4 @@ public class AccountEntity {
 
     public AccountEntity() {} // Default constructor for JPA
     
-    public AccountEntity(String name, AccountType type, Double balance) {
-        this.name = name;
-        this.type = type;
-        this.balance = balance;
-    }
 }
