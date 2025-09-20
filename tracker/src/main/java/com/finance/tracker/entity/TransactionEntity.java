@@ -39,10 +39,4 @@ public class TransactionEntity {
 
     public TransactionEntity() {} // Default constructor for JPA
     
-    // public TransactionEntity(CategoryEntity category, AccountEntity account, LocalDate date, Double amount) {
-    //     this.category = category;
-    //     this.account = account;
-    //     this.date = date;
-    //     this.amount = amount;
-    // }
 }

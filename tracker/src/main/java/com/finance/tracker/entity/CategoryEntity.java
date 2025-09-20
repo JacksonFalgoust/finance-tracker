@@ -46,11 +46,5 @@ public class CategoryEntity {
     }
 
     public CategoryEntity() {} // Default constructor for JPA
-    
-    public CategoryEntity(String name, CategoryType type, Double monthlyBudget) {
-        this.name = name;
-        this.monthlyBudget = monthlyBudget;
-        this.type = type;
-    }
 
 }
