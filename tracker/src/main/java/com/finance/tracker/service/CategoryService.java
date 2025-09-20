@@ -18,6 +18,10 @@ public class CategoryService {
         if (category.getName() == null) {
             throw new IllegalArgumentException("Category name cannot be null");
         }
+
+        if (category.getType() == null) {
+            category.setType(CategoryEntity.CategoryType.EXPENSE);
+        }
         
         return catRepo.save(category);
     }

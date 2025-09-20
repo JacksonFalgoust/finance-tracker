@@ -32,7 +32,8 @@ public class TransactionService {
             transaction.setCategory(defaultCategory);
         }
 
-        CategoryEntity category = transaction.getCategory();
+        CategoryEntity category = catRepo.findById(transaction.getCategory().getId())
+                .orElseThrow(() -> new RuntimeException("Category not found"));
 
         AccountEntity account = accRepo.findById(transaction.getAccount().getId())
                 .orElseThrow(() -> new RuntimeException("Account not found"));
