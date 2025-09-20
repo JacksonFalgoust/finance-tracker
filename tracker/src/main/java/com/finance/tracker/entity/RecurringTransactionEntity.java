@@ -34,7 +34,7 @@ public class RecurringTransactionEntity {
     private Frequency frequency; // e.g., "Monthly", "Weekly"
 
     private Double amount;
-    private LocalDate startDate = LocalDate.now(); // Date of the transaction, default to current date
+    private LocalDate startDate; // Date of the transaction, default to current date
     private LocalDate nextOccurrence; // e.g., "2024-07-01"
     private boolean active = true; // Is the recurring transaction active?
 

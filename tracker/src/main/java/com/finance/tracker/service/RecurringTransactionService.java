@@ -33,18 +33,22 @@ public class RecurringTransactionService {
 
     public RecurringTransactionEntity createRecurringTransaction(RecurringTransactionEntity recurring) {
 
-        AccountEntity account = accRepo.findById(recurring.getAccount().getId())
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+        if (recurring.getCategory() == null) {
+            CategoryEntity defaultCategory = catRepo.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Default category not found")); // Default 'Other' category
+            recurring.setCategory(defaultCategory);
+        }
 
-        CategoryEntity category = catRepo.findById(recurring.getCategory().getId())
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+        if (recurring.getStartDate() == null) {
+            recurring.setStartDate(LocalDate.now());
+        }
 
         if (recurring.getNextOccurrence() == null) {
             switch (recurring.getFrequency()) {
-                case DAILY -> recurring.setNextOccurrence(recurring.getStartDate().plusDays(1));
-                case WEEKLY -> recurring.setNextOccurrence(recurring.getStartDate().plusWeeks(1));
-                case MONTHLY -> recurring.setNextOccurrence(recurring.getStartDate().plusMonths(1));
-                case YEARLY -> recurring.setNextOccurrence(recurring.getStartDate().plusYears(1));
+                case DAILY -> recurring.setNextOccurrence(recurring.getStartDate());
+                case WEEKLY -> recurring.setNextOccurrence(recurring.getStartDate());
+                case MONTHLY -> recurring.setNextOccurrence(recurring.getStartDate());
+                case YEARLY -> recurring.setNextOccurrence(recurring.getStartDate());
                 default -> throw new RuntimeException("Unsupported frequency: " + recurring.getFrequency());
             }
         }
