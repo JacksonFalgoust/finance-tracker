@@ -46,13 +46,6 @@ public class AccountController {
     @GetMapping("/{accountId}")
     public List<TransactionEntity> showTransactionByAccount(@PathVariable Long accountId) {
         return transRepo.findByAccountId(accountId);
-    }
-
-    // @PutMapping("/{accountId}/balance") 
-    // public AccountEntity updateAcountBalance(@PathVariable Long accountId, @RequestBody Map<String, Double> body) {
-    //     double changeInBalance = body.get("balance");
-    //     return service.updateBalance(accountId, changeInBalance);
-    // }
-        
+    }  
 
 }
