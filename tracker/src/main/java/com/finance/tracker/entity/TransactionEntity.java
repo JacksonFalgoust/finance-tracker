@@ -34,7 +34,7 @@ public class TransactionEntity {
     @JoinColumn(name = "account_id")  // Foreign key column
     private AccountEntity account; // Account of the transaction linked to AccountEntity
 
-    private LocalDate date = LocalDate.now(); // Date of the transaction, default to current date
+    private LocalDate date; // Date of the transaction, default to current date
     private Double amount;
 
     public TransactionEntity() {} // Default constructor for JPA
