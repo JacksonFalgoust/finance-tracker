@@ -26,7 +26,7 @@ public class RecurringTransactionController {
 
     @PostMapping
     public RecurringTransactionEntity createRecurringTransaction(@RequestBody RecurringTransactionEntity recTransaction) {
-        return recRepo.save(recTransaction);
+        return recService.createRecurringTransaction(recTransaction);
     }
 
     @GetMapping
