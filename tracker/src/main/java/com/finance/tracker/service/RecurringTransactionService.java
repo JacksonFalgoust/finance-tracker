@@ -44,13 +44,7 @@ public class RecurringTransactionService {
         }
 
         if (recurring.getNextOccurrence() == null) {
-            switch (recurring.getFrequency()) {
-                case DAILY -> recurring.setNextOccurrence(recurring.getStartDate());
-                case WEEKLY -> recurring.setNextOccurrence(recurring.getStartDate());
-                case MONTHLY -> recurring.setNextOccurrence(recurring.getStartDate());
-                case YEARLY -> recurring.setNextOccurrence(recurring.getStartDate());
-                default -> throw new RuntimeException("Unsupported frequency: " + recurring.getFrequency());
-            }
+            recurring.setNextOccurrence(recurring.getStartDate());
         }
 
         return recRepo.save(recurring);
