@@ -28,11 +28,5 @@ public class AccountService {
 
         return repo.save(account);
     }
-
-    public AccountEntity updateBalance(Long accountId, double changeInBalance) {
-        AccountEntity account = repo.findById(accountId).orElseThrow(() -> new RuntimeException("Account not found"));
-        account.setBalance(account.getBalance() + changeInBalance);
-        return repo.save(account);
-    }
-
+    
 }

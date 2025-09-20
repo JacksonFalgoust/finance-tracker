@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.finance.tracker.entity.AccountEntity;
 import com.finance.tracker.entity.CategoryEntity;
-import com.finance.tracker.entity.CategoryEntity.CategoryType;
 import com.finance.tracker.entity.TransactionEntity;
 import com.finance.tracker.repository.AccountRepository;
 import com.finance.tracker.repository.CategoryRepository;
@@ -33,7 +32,8 @@ public class TransactionService {
             transaction.setCategory(defaultCategory);
         }
 
-        CategoryEntity category = transaction.getCategory();
+        CategoryEntity category = catRepo.findById(transaction.getCategory().getId())
+                .orElseThrow(() -> new RuntimeException("Category not found"));
 
         AccountEntity account = accRepo.findById(transaction.getAccount().getId())
                 .orElseThrow(() -> new RuntimeException("Account not found"));
@@ -50,12 +50,14 @@ public class TransactionService {
             transaction.setDate(LocalDate.now());
         }
         
-        if (category.getType() == CategoryType.EXPENSE) {
-            account.setBalance(account.getBalance() - transaction.getAmount());
-        } else if (category.getType() == CategoryType.INCOME) {
-            account.setBalance(account.getBalance() + transaction.getAmount());
-        } else {
-            throw new RuntimeException("Invalid transaction type");
+        switch (category.getType()) {
+            case EXPENSE -> {
+                account.setBalance(account.getBalance() - transaction.getAmount());
+                category.setSpentThisMonth(category.getSpentThisMonth() + transaction.getAmount());
+            }
+            
+            case INCOME -> account.setBalance(account.getBalance() + transaction.getAmount());
+            default -> throw new RuntimeException("Invalid transaction type: " + category.getType());
         }
 
         accRepo.save(account);
