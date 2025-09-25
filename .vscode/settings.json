@@ -1,12 +1,13 @@
 {
     "java.project.sourcePaths": [
-        "src",
-        "tracker/src/main/java/com/finance/tracker"
+        "tracker/src/main/java/com/finance/tracker",
+        "backend/tracker/src/main/java/com/finance/tracker"
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.debug.settings.onBuildFailureProceed": true
 }

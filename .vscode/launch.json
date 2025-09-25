@@ -4,25 +4,15 @@
             "type": "java",
             "name": "TrackerApplication",
             "request": "launch",
-            "mainClass": "com.finance.tracker.TrackerApplication",
-            "projectName": "tracker"
-        },
-        {
-            "type": "java",
-            "name": "TrackerApplication",
-            "request": "launch",
             "mainClass": "TrackerApplication",
             "projectName": "Personal finance tracker_cc573815"
         },
         {
             "type": "java",
-            "name": "Spring Boot-FinanceTrackerBackendApplication<finance-tracker-backend>",
+            "name": "TrackerApplication",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.Jackson_Falgoust.finance_tracker.FinanceTrackerBackendApplication",
-            "projectName": "finance-tracker-backend",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "mainClass": "com.finance.tracker.TrackerApplication",
+            "projectName": "tracker"
         }
     ]
 }
