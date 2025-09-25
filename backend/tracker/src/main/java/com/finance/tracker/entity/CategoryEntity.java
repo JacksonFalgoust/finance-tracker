@@ -1,0 +1,50 @@
+package com.finance.tracker.entity;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
+/*
+ * Entity class representing a transaction category.
+ * Each category can have multiple transactions associated with it.
+ */
+
+@Getter
+@Setter
+@Entity
+public class CategoryEntity {
+
+    @Id // Primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment id
+    private Long id;
+
+    private String name;
+    private Double monthlyBudget;
+    private Double spentThisMonth = 0.0;
+
+    @Enumerated(EnumType.STRING) // Store enum as string in DB
+    private CategoryType type; // Type of category (e.g., INCOME, EXPENSE
+
+    @JsonIgnore // Prevents infinite recursion during JSON serialization
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // One category can have many transactions 
+    private List<TransactionEntity> transactions; // List of transactions linked to this category
+
+    public enum CategoryType {
+        INCOME,
+        EXPENSE
+    }
+
+    public CategoryEntity() {} // Default constructor for JPA
+
+}
