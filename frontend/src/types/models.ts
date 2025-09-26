@@ -3,7 +3,7 @@
 export interface Account {
     id: number;
     name: string;
-    type: string;
+    type: "CHECKING" | "SAVINGS" | "CREDIT_CARD" | "CASH" | "INVESTMENT";
     balance:number;
 }
 
