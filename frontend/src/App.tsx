@@ -7,7 +7,7 @@ import AccountsPage from './pages/AccountsPage';
 // Router for pages like dashboard, accounts, transactions, budgets, etc.
 
 export default function App() {
-  const [page, setPage] = useState("transactions");
+  const [page, setPage] = useState("welcome");
 
   return (
     <div className='min-h-screen bg-gray-100'>
@@ -16,6 +16,12 @@ export default function App() {
         <h1 className='text-xl font-bold'>Personal Finance Tracker</h1>
 
         <div className='space-x-6'>
+          <button
+            onClick={() => setPage("welcome")}
+            className='hover:text-blue-400 transition'>
+              Home
+            </button>
+
           <button
             onClick={() => setPage("transactions")}
             className='hover:text-blue-400 transition'>
@@ -37,7 +43,13 @@ export default function App() {
       </nav>
 
       {/* Page Content */}
-      <div className='p-6'>
+      <div className='p-6' text-center>
+        {page === "welcome" && (
+          <div>
+            <h2 className='text-3xl font-bold mb-4'>Welcome to your Personal Finance Tracker</h2>
+            <p className='text-lg text-gray-700'>Use the navigation above to manage your transactions, categories, and accounts</p>
+          </div>
+        )}
         {page === "transactions" && <TransactionsPage/>}
         {page === "categories" && <CategoriesPage/>}
         {page === "accounts" && <AccountsPage />}

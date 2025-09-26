@@ -109,7 +109,7 @@ export default function TransactionPage() {
                     </select>
 
                     {/* Recurring toggle */}
-                    <label className="flex items-center space-x-2">
+                    <label className="items-center space-x-2">
                         <input type="checkbox" checked={isRecurring} onChange={e => setIsRecurring(e.target.checked)} />
                         <span>Recurring</span>
                     </label>
