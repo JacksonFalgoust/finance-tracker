@@ -1,4 +1,5 @@
 // Shared TypeScript interface with backend
+// Defines types so that the frontend matches the backend
 
 export interface Account {
     id: number;
