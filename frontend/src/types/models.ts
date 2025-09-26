@@ -16,14 +16,16 @@ export interface Category {
 }
 
 export interface Transaction {
-    id: number;
+    id?: number;
     amount: number;
     date?: string;
     account: Account;
     category: Category;
+    isRecurring?: boolean;
 }
 
 export interface RecurringTransaction extends Transaction {
-    frequence: "DAILY" | "WEEKLY" | "MONTHLY";
-    nextOccurence?: string;
+    startDate?: string;
+    frequency: "DAILY" | "WEEKLY" | "BIWEEKLY" | "MONTHLY" | "YEARLY";
+    nextOccurrence?: string;
 }
