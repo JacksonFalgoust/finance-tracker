@@ -78,6 +78,7 @@ public class RecurringTransactionService {
             switch (recurring.getFrequency()) {
                 case DAILY -> recurring.setNextOccurrence(recurring.getNextOccurrence().plusDays(1));
                 case WEEKLY -> recurring.setNextOccurrence(recurring.getNextOccurrence().plusWeeks(1));
+                case BIWEEKLY -> recurring.setNextOccurrence(recurring.getNextOccurrence().plusWeeks(2));
                 case MONTHLY -> recurring.setNextOccurrence(recurring.getNextOccurrence().plusMonths(1));
                 case YEARLY -> recurring.setNextOccurrence(recurring.getNextOccurrence().plusYears(1));
             }

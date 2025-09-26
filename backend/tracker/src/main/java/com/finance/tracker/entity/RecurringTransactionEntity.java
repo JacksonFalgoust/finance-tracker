@@ -41,6 +41,7 @@ public class RecurringTransactionEntity {
     public enum Frequency {
         DAILY,
         WEEKLY,
+        BIWEEKLY,
         MONTHLY,
         YEARLY
     }
