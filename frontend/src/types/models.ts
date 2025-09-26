@@ -1,0 +1,28 @@
+// Shared TypeScript interface with backend
+
+export interface Account {
+    id: number;
+    name: string;
+    type: string;
+    balance:number;
+}
+
+export interface Category {
+    id: number;
+    name: string;
+    type: "EXPENSE" | "INCOME";
+    spendThisMonth?: number;
+}
+
+export interface Transaction {
+    id: number;
+    amount: number;
+    date: string;
+    account: Account;
+    category: Category;
+}
+
+export interface RecurringTransaction extends Transaction {
+    frequence: "DAILY" | "WEEKLY" | "MONTHLY";
+    nextOccurence: string;
+}
