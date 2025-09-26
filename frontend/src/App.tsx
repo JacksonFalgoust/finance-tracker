@@ -23,6 +23,12 @@ export default function App() {
             </button>
 
           <button
+            onClick={() => setPage("accounts")}
+            className='hover:text-blue-400 transition'>
+              Accounts
+            </button>
+
+          <button
             onClick={() => setPage("transactions")}
             className='hover:text-blue-400 transition'>
               Transactions
@@ -32,12 +38,6 @@ export default function App() {
             onClick={() => setPage("categories")}
             className='hover:text-blue-400 transition'>
               Categories
-            </button>
-
-            <button
-            onClick={() => setPage("accounts")}
-            className='hover:text-blue-400 transition'>
-              Accounts
             </button>
         </div>
       </nav>
