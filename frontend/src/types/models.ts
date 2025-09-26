@@ -18,12 +18,12 @@ export interface Category {
 export interface Transaction {
     id: number;
     amount: number;
-    date: string;
+    date?: string;
     account: Account;
     category: Category;
 }
 
 export interface RecurringTransaction extends Transaction {
     frequence: "DAILY" | "WEEKLY" | "MONTHLY";
-    nextOccurence: string;
+    nextOccurence?: string;
 }
