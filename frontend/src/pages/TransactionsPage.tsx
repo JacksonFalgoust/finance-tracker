@@ -51,8 +51,13 @@ export default function TransactionPage() {
             await createTransaction(transaction)
         }
 
-        const transactions = await getTransactions();
+        const [transactions, accounts] = await Promise.all([
+            getTransactions(),
+            getAccounts(),
+        ]);
+
         setTransactions(transactions.data);
+        setAccounts(accounts.data);
 
         setAmount("");
         setSelectedAccountId("");
